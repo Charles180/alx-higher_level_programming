@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+import hidden_4
+
+
+def print_hidden_names():
+    for name in dir(hidden_4):
+        if not name.startswith("__"):
+            print(name)
+
+
 if __name__ == "__main__":
-    import hidden_4
-    for x in dir(hidden_4):
-        if x[:2] != '_':
-            print(x)
+    print_hidden_names()
