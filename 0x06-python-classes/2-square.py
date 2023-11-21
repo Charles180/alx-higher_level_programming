@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module documentatio
+documentation of module
 """
 
 
