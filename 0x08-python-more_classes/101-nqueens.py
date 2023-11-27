@@ -1,58 +1,59 @@
 #!/usr/bin/python3
 """
 
-The module resolves the N-Queen puzzle using backtracking
+This module contains an algorithm that resolves the N-Queen puzzle
+using backtracking
 
 """
 
 
 def isSafe(m_queen, nqueen):
-    """ Examine whether the queens can kill each other
+    """ Method that determines if the queens can or can't kill each other
 
     Args:
-        m_queen: queen's position array
-        nqueen: queen's num
+        m_queen: array that has the queens positions
+        nqueen: queen number
 
     Returns:
-        True: If queen can't kill each other
-        False: queen can kill each other
+        True: when queens can't kill each other
+        False: when some of the queens can kill
 
     """
 
-    for x in range(nqueen):
+    for i in range(nqueen):
 
-        if m_queen[x] == m_queen[nqueen]:
+        if m_queen[i] == m_queen[nqueen]:
             return False
 
-        if abs(m_queen[x] - m_queen[nqueen]) == abs(x - nqueen):
+        if abs(m_queen[i] - m_queen[nqueen]) == abs(i - nqueen):
             return False
 
     return True
 
 
 def print_result(m_queen, nqueen):
-    """ Prints the list with the Queens positions
+    """ Method that prints the list with the Queens positions
 
     Args:
-        m_queen: Queen's positions array
-        nqueen: queen's num
+        m_queen: array that has the queens positions
+        nqueen: queen number
 
     """
 
-    residual = []
+    res = []
 
-    for x in range(nqueen):
-        residual.append([x, m_queen[x]])
+    for i in range(nqueen):
+        res.append([i, m_queen[i]])
 
-    print(residual)
+    print(res)
 
 
 def Queen(m_queen, nqueen):
-    """ Recursive function for Backtracking
+    """ Recursive function that executes the Backtracking algorithm
 
     Args:
-        m_queen: queen's position array
-        nqueen: queen's num
+        m_queen: array that has the queens positions
+        nqueen: queen number
 
     """
 
@@ -73,14 +74,14 @@ def Queen(m_queen, nqueen):
 
 
 def solveNQueen(size):
-    """ Executes Backtracking
+    """ Function that invokes the Backtracking algorithm
 
     Args:
-        size: chessboard size
+        size: size of the chessboard
 
     """
 
-    m_queen = [-1 for x in range(size)]
+    m_queen = [-1 for i in range(size)]
 
     Queen(m_queen, 0)
 
@@ -96,11 +97,11 @@ if __name__ == '__main__':
     try:
         size = int(sys.argv[1])
     except ValueError:
-        print("N must be a num")
+        print("N must be a number")
         sys.exit(1)
 
     if size < 4:
-        print("N must be >= 4")
+        print("N must be at least 4")
         sys.exit(1)
 
     solveNQueen(size)
