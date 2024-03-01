@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script that takes url & email, sends a POST request and displays the response"""
+"""Takes url & email, sends a POST request and displays the response"""
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from sys import argv
